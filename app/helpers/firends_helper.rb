@@ -1,0 +1,2 @@
+module FirendsHelper
+end
