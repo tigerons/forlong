@@ -2,9 +2,8 @@
 <p>Find me in app/views/user/index.html.erb</p>
 <% @users = User.all %>
 <% @users.each do |user| %>
-  <% unless user == current_user %>
-    <%= user.email%>
-    <%= link_to 'Dodaj do znajomych'%><br/>
-
+  <% if user != current_user %>
+    <%= user.email%> <%= link_to 'Dodaj do znajomych', friendships_path(:friend_id => user), :method => :post%><br/>
+    
   <%end%>
 <% end %>
