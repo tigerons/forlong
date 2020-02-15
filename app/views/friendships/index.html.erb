@@ -1,0 +1,16 @@
+<h1>friendships#index</h1>
+<% if @user.friend_requests? %>
+  <p> Wysłane zaproszenia: </p>
+  <% @requests.each do |friend| %>
+    <%=friend.email%>
+  <% end %>
+<% end %>
+
+<% if @user.requested_friends? %>
+  <p> Zaproszenia do grona znajomych: <p>
+  <% @pending.each do |friend| %>
+    <%= friend.email %>
+  <% end %>
+<% end %>
+
+<% if @user.friends? %>
