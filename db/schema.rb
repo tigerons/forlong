@@ -10,14 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_13_172818) do
+ActiveRecord::Schema.define(version: 2020_02_15_103627) do
 
   create_table "friendships", force: :cascade do |t|
-    t.integer "user_id"
+    t.string "friendable_type"
+    t.integer "friendable_id"
     t.integer "friend_id"
-    t.string "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer "blocker_id"
+    t.integer "status"
+    t.index ["friendable_id", "friend_id"], name: "index_friendships_on_friendable_id_and_friend_id", unique: true
   end
 
   create_table "models", force: :cascade do |t|
