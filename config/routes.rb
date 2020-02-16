@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post "/friendships/accept" => "friendships/accept"
   post "/friendships/remove" => "friendships/remove"
   post "/friendships/block" => "friendships/block"
+  post "/friendships/unblock" => "friendships/unblock"
   get "/friendships/blocked_friends" => "friendships/blocked_friends"
   get "/friendships/requested_friends" => "friendships/requested_friends"
   resources :friendships, only: [:index, :create]

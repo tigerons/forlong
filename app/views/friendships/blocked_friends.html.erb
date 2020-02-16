@@ -4,7 +4,7 @@
 <br>
   <% @blocked.each do |user| %>
     <li> <%= user.email %> <li>
-    <%= form_tag ({controller: 'friendships', action: 'unblocked', method: 'post', id: user.id}) do %>
+    <%= form_tag ({controller: 'friendships', action: 'unblock', method: 'post', id: user.id}) do %>
       <input class="ui basic button" type=submit value='Odblokuj'>
     <% end %>
   <% end %>
