@@ -1,16 +1,27 @@
 <h1>friendships#index</h1>
+<b> Do akceptacji:</b>
 <% if @user.friend_requests? %>
-  <p> Wysłane zaproszenia: </p>
-  <% @requests.each do |friend| %>
-    <%=friend.email%>
+  <br>
+  <% @requests.each do |user| %>
+    <li> <%= user.email %> <li>
+    <%= form_tag ({controller: 'friendships', action: 'accept', method: 'post', id: user.id}) do %>
+      <input class="ui basic button" type=submit value='Akceptuj zaproszenie'>
+    <% end %>
   <% end %>
 <% end %>
-
-<% if @user.requested_friends? %>
-  <p> Zaproszenia do grona znajomych: <p>
-  <% @pending.each do |friend| %>
-    <%= friend.email %>
-  <% end %>
-<% end %>
-
+<br>
 <% if @user.friends? %>
+  <b> Twoi znajomi: </b>
+  <br>
+  <% @friends.each do |friend| %>
+    <li><%= link_to friend.email %>
+      <%= form_tag ({controller: 'friendships', action: 'remove', method: 'post', id: friend.id}) do %>
+        <input class="ui basic button" type=submit value='Usuń z grona znajomych'>
+      <% end %>
+      <%= form_tag ({controller: 'friendships', action: 'block', method: 'post', id: friend.id}) do %>
+        <input class="ui basic button" type=submit value='Zablokuj'>
+      <% end %>
+  <% end %>
+<% end %>
+<br>
+<%=link_to 'Back', users_path %>

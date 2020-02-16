@@ -1,0 +1,13 @@
+<b> Zablokowani: <b>
+  <br>
+<% if @user.blocked_friends? %>
+<br>
+  <% @blocked.each do |user| %>
+    <li> <%= user.email %> <li>
+    <%= form_tag ({controller: 'friendships', action: 'unblocked', method: 'post', id: user.id}) do %>
+      <input class="ui basic button" type=submit value='Odblokuj'>
+    <% end %>
+  <% end %>
+<% end %>
+<br>
+<%= link_to 'Back', users_path %>

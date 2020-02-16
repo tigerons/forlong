@@ -3,13 +3,13 @@
 <h1 class="ui left floated header">
   <%=current_user.email%>
 </h1>
-<% @users = User.all %>
-<% @users.each do |user| %>
-  <% if user != current_user %>
-    <%= user.email%>
-    <%= form_tag ({controller: 'friendships', action: 'create', method: 'post', id: user.id}) do %>
-      <input class="ui basic button" type=submit value='Dodaj do znajomych'>
-    <% end %>
-
-  <%end%>
+<% current_user.not_friends.sample(5).each do |user| %>
+  <%= link_to user.email, user_path(user) %>
+  <%= form_tag ({controller: 'friendships', action: 'create', method: 'post', id: user.id}) do %>
+    <input class="ui basic button" type=submit value='Dodaj do znajomych'>
+  <% end %>
 <% end %>
+<br>
+<%= link_to 'Twoi znajomi', friendships_path %>
+<%= link_to 'Wysłane zaproszenia', friendships_requested_friends_path %>
+<%= link_to 'Zablokowani użytkownicy', friendships_blocked_path %>

@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   root to:  'pages#home'
   devise_for :users
   match '/users',   to: 'users#index',   via: 'get'
+  post "/friendships/accept" => "friendships/accept"
+  post "/friendships/remove" => "friendships/remove"
+  post "/friendships/block" => "friendships/block"
+  get "/friendships/blocked_friends" => "friendships/blocked_friends"
+  get "/friendships/requested_friends" => "friendships/requested_friends"
   resources :friendships, only: [:index, :create]
   resources :users
 

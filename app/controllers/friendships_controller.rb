@@ -4,7 +4,15 @@ class FriendshipsController < ApplicationController
     @user = current_user
     @friends = @user.friends
     @requests = @user.requested_friends
+  end
+
+  def requested_friends
+    @user = current_user
     @pending = @user.pending_friends
+  end
+
+  def blocked_friends
+    @user = current_user
     @blocked = @user.blocked_friends
   end
 
@@ -20,6 +28,7 @@ class FriendshipsController < ApplicationController
     @user = current_user
     friend = User.find_by(id: params[:id])
     @user.accept_request(friend)
+    flash[:notice] = "Zaakceptowano zaproszenie"
     redirect_to users_path
   end
 
@@ -51,4 +60,10 @@ class FriendshipsController < ApplicationController
     redirect_to users_path
   end
 
+  def has_friend?
+    @user = current_user
+    friend = User.find_by(id: params[:id])
+    @user.friends_with?(friend)
+    redirect_to users_path
+  end
 end

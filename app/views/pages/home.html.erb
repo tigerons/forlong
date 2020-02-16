@@ -2,7 +2,7 @@
 <% if current_user %>
   <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
   <%= link_to 'Lista użytkowników', users_url %>
-  <%= link_to 'Zaproszenia do grona znajomych'  %><br/>
+  <%= link_to 'Zaproszenia do grona znajomych', friendships_path  %><br/>
 <% else %>
   <%= link_to 'Sign up', new_user_registration_path %>
   <%= link_to 'Sign in', new_user_session_path %>
