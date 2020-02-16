@@ -1,0 +1,8 @@
+<% if @user.requested_friends? %>
+  <b> Wysłane zaproszenia: </b>
+  <% @pending.each do |friend| %>
+    <%= friend.email %>
+  <% end %>
+<% end %>
+<br>
+<%= link_to 'Back', users_path %>
