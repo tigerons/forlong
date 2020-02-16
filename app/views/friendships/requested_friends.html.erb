@@ -1,7 +1,10 @@
 <% if @user.requested_friends? %>
   <b> Wysłane zaproszenia: </b>
-  <% @pending.each do |friend| %>
-    <%= friend.email %>
+  <% @pending.each do |user| %>
+    <%= user.email %>
+    <%= form_tag ({controller: 'friendships', action: 'reject', method: 'post', id: user.id}) do %>
+      <input class="ui basic button" type=submit value='Anauluj zaproszenie'>
+    <% end %>
   <% end %>
 <% end %>
 <br>
