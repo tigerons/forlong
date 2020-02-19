@@ -22,10 +22,15 @@ class User < ApplicationRecord
     self.blocked_friends.any?
   end
 
+
   def not_friends
     users_not_be_a_friends = []
     User.all.each do |user|
-      if(self.friends_with?(user) == false && self != user && self.friends.include?(user) == false && self.pending_friends.include?(user) == false && self.requested_friends.include?(user) == false)
+      if( (self.friends_with?(user) == false) &&
+          (self != user && self.friends.include?(user) == false) &&
+          (self.pending_friends.include?(user) == false) &&
+          (self.requested_friends.include?(user) == false) &&
+          (self.blocked_friends.include?(user) == false) )
         users_not_be_a_friends.push user
       end
     end
