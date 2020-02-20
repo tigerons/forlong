@@ -62,7 +62,6 @@ class FriendshipsController < ApplicationController
     @user.unblock_friendship(friend)
     @user.blocked_users.delete(friend)
     @user.save!
-    redirect_to users_path
   end
 
   def has_friend?
