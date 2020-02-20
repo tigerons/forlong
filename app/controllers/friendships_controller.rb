@@ -49,8 +49,10 @@ class FriendshipsController < ApplicationController
   def block
     @user = current_user
     friend = User.find_by(id: params[:id])
-    @user.block_friend(friend)
+    @user.blocked_friends << friend
+    @user.save
     redirect_to users_path
+    end
   end
 
   def unblock
