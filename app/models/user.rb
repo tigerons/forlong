@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_friendship
-  serialize :blocked_friends, Array
+  serialize :blocked_users, Array
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -29,7 +29,7 @@ class User < ApplicationRecord
           (self != user && self.friends.include?(user) == false) &&
           (self.pending_friends.include?(user) == false) &&
           (self.requested_friends.include?(user) == false) &&
-          (self.blocked_friends.include?(user) == false) )
+          (self.blocked_friendships.include?(user) == false) )
         users_not_be_a_friends.push user
       end
     end

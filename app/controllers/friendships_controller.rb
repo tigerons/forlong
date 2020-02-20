@@ -11,9 +11,9 @@ class FriendshipsController < ApplicationController
     @pending = @user.pending_friends
   end
 
-  def blocked_friends
+  def blocked_friendship
     @user = current_user
-    @blocked = @user.blocked_friends
+    @blocked = @user.blocked_friendship
   end
 
   def create
@@ -46,19 +46,22 @@ class FriendshipsController < ApplicationController
     redirect_to users_path
   end
 
+
   def block
     @user = current_user
     friend = User.find_by(id: params[:id])
-    @user.blocked_friends << friend
-    @user.save
+    @user.block_friendship(friend)
+    @user.blocked_users << friend
+    @user.save!
     redirect_to users_path
-    end
   end
 
   def unblock
     @user = current_user
     friend = User.find_by(id: params[:id])
-    @user.unblock_friend(friend)
+    @user.unblock_friendship(friend)
+    @user.blocked_users.delete(friend)
+    @user.save!
     redirect_to users_path
   end
 

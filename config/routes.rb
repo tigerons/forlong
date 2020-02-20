@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   post "/friendships/block" => "friendships/block"
   post "/friendships/unblock" => "friendships/unblock"
   post "/friendships/reject" => "friendships/reject"
-  get "/friendships/blocked_friends" => "friendships/blocked_friends"
+  get "/users/blocked_users" => "users/blocked_users"
   get "/friendships/requested_friends" => "friendships/requested_friends"
   resources :friendships, only: [:index, :create]
   resources :users

@@ -1,6 +1,6 @@
 <b> Zablokowani: <b>
   <br>
-<% if @user.blocked_friends? %>
+<% if @user.blocked_users? %>
 <br>
   <% @blocked.each do |user| %>
     <li> <%= user.email %> <li>
