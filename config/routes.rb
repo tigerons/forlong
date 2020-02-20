@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'friendships/index' => 'friendships#index'
   get 'friends/destroy'
   resources :friend_requests
-  root to:  'pages#home'
+  root to:  'posts#index'
   devise_for :users
   match '/users',   to: 'users#index',   via: 'get'
   post "/friendships/accept" => "friendships/accept"
