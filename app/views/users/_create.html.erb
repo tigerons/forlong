@@ -1,0 +1,4 @@
+<%= link_to user.email, user_path(user), class: 'add_friend' %>
+<%= form_tag ({controller: 'friendships', action: 'create', method: 'post', id: user.id, remote: true}) do %>
+  <input class="ui basic button" type=submit value='Dodaj do znajomych'>
+<% end %>

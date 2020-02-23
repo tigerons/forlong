@@ -8,7 +8,7 @@ class FriendshipsController < ApplicationController
 
   def show
   end
-  
+
   def requested_friends
     @user = current_user
     @pending = @user.pending_friends
@@ -24,8 +24,8 @@ class FriendshipsController < ApplicationController
     friend = User.find_by(id: params[:id])
     @user.friend_request(friend)
     respond_to do |format|
-      format.html { redirect_to @user, notice: 'Wysłano zaproszenie do grona znajomych' }
       format.js
+      format.html { redirect_to @user, notice: 'Wysłano zaproszenie do grona znajomych' }
     end
   end
 
@@ -44,8 +44,8 @@ class FriendshipsController < ApplicationController
     friend = User.find_by(id: params[:id])
     @user.decline_request(friend)
     respond_to do |format|
-      format.html { redirect_to friendships_requested_friends_path, notice: 'Anulowano zaproszenie' }
       format.js
+      format.html { redirect_to @user, notice: 'Anulowano zaproszenie' }
     end
   end
 
