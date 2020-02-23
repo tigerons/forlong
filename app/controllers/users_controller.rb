@@ -3,6 +3,9 @@ class UsersController < ApplicationController
   def index
     @user = current_user
   end
+  
+  def show
+  end
 
   def blocked_users
     @user = current_user

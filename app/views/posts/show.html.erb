@@ -1,9 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
 
 <p>
   <strong>Body:</strong>
@@ -12,7 +8,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @post.user %>
+  <%= @post.user.email %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

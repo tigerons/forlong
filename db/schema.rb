@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_19_104459) do
+ActiveRecord::Schema.define(version: 2020_02_22_133415) do
 
   create_table "friendships", force: :cascade do |t|
     t.string "friendable_type"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_02_19_104459) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "title"
+    t.string "titile"
     t.text "body"
     t.integer "user_id"
     t.datetime "created_at", null: false

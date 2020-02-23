@@ -1,0 +1,6 @@
+<tr>
+  <td><%= post.body%></td> <td><%= post.user.email %></td>
+  <td><%= link_to 'Show', post %></td>
+  <td><%= link_to 'Edit', edit_post_path(post), remote: true, class: "update" %></td>
+  <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Czy jesteś pewien?', remote: true}, class: "delete" %></td>
+</tr>
