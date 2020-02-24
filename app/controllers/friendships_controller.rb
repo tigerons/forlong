@@ -14,6 +14,11 @@ class FriendshipsController < ApplicationController
     @pending = @user.pending_friends
   end
 
+  def friends_request
+    @user = current_user
+    @requests = @user.requested_friends
+  end
+
   def blocked_friendship
     @user = current_user
     @blocked = @user.blocked_friendship
