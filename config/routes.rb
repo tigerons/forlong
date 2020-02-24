@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   delete "/friendships/reject" => "friendships/reject"
   get "/users/blocked_users" => "users/blocked_users"
   get "/friendships/requested_friends" => "friendships/requested_friends"
+  get "/friendships/friends_request" => "friendships/friends_requests"
   get "/friendships/reject" => "friendships/reject"
   get "/friendships/create" => "friendhsips/create"
   resources :friendships, only: [:index, :create]
