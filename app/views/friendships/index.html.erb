@@ -1,14 +1,4 @@
 <h1>friendships#index</h1>
-<b> Do akceptacji:</b>
-<% if @user.friend_requests? %>
-  <br>
-  <% @requests.each do |user| %>
-    <li> <%= user.email %> <li>
-    <%= form_tag ({controller: 'friendships', action: 'accept', method: 'post', id: user.id}) do %>
-      <input class="ui basic button" type=submit value='Akceptuj zaproszenie'>
-    <% end %>
-  <% end %>
-<% end %>
 <br>
 <% if @user.friends? %>
   <b> Twoi znajomi: </b>
