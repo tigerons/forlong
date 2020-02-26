@@ -14,16 +14,16 @@
     <body>
       <ul class="nav">
         <li id="options">
-            <a href="#"><%= image_tag "home_button.png" %></a>
+            <%=link_to image_tag("home_button.png"), authenticated_root_path %>
         </li>
         <li>
-            <a href="#">Mój profil</a>
+            <%= link_to "Mój profil", users_path %>
         </li>
         <li>
             <a href="#">Wiadomości</a>
         </li>
         <li>
-            <a href="#">Partner dla Ciebie</a>
+            <%= link_to "Partner dla Ciebie", users_path %>
         </li>
 
         <li id="settings">
