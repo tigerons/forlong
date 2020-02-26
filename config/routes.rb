@@ -6,9 +6,17 @@ Rails.application.routes.draw do
   get 'friendships/index' => 'friendships#index'
   get 'friends/destroy'
   resources :friend_requests
-  root to: 'pages#home'
+  #root to: 'pages#home'
 
   devise_for :users
+  devise_scope :user do
+    authenticated :user do
+      root 'pages#home', as: :authenticated_root
+    end
+    unauthenticated do
+      root 'devise/sessions#new', as: :unauthenticated_root
+    end
+  end
   match '/users',   to: 'users#index',   via: 'get'
   post "/friendships/accept" => "friendships/accept"
   post "/friendships/remove" => "friendships/remove"
