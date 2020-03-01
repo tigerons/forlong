@@ -1,0 +1,31 @@
+<%= f.label :Imie %>
+<%= f.text_field :name, :disabled => true %>
+<%= f.label :Nazwisko %>
+<%= f.text_field :surname %>
+<%= f.label :email %>
+<%= f.text_field :email %>
+<%= f.label "Data urodzenia" %>
+<%= f.date_field :date_of_birth %>
+<%= f.label "gender" do %>
+  <%= f.label "gender-male" do %>
+    <%= f.label "Płeć" %>
+    <%= f.label "Mężczyzna" %>
+    <%= f.radio_button :gender, "male"%>
+  <% end %>
+    <%= f.label "gender-female"  do %>
+      <%= f.label "Kobieta" %>
+      <%= f.radio_button :gender, "female"%>
+  <% end %>
+<% end %>
+<%= f.label "looking_for" do %>
+  <%= f.label "gender-male" do %>
+    <%= f.label "Kogo szukasz?" %>
+    <%= f.label "Mężczyzna" %>
+    <%= f.radio_button :looking_for, "male"%>
+  <% end %>
+    <%= f.label "gender-female"  do %>
+      <%= f.label "Kobieta" %>
+      <%= f.radio_button :looking_for, "female"%>
+  <% end %>
+  <%= f.submit %>
+<% end %>

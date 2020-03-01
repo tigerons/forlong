@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_22_133415) do
+ActiveRecord::Schema.define(version: 2020_02_29_205639) do
 
   create_table "friendships", force: :cascade do |t|
     t.string "friendable_type"
@@ -57,6 +57,12 @@ ActiveRecord::Schema.define(version: 2020_02_22_133415) do
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
     t.text "blocked_users", default: "--- []\n"
+    t.string "name"
+    t.string "surname"
+    t.datetime "date_of_birth"
+    t.string "gender"
+    t.string "looking_for"
+    t.string "description"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

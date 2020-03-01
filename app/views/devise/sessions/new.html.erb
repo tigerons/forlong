@@ -1,57 +1,62 @@
 <h2>Log in</h2>
 <%= stylesheet_link_tag 'sessions', media: 'all', 'data-turbolinks-track': 'reload' %>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= javascript_include_tag 'application' %>
+<%= yield :js %>
+<!DOCTYPE html>
+<html >
+<head>
 
-<% if devise_mapping.rememberable? %>
-  <div class="field">
-    <%= f.check_box :remember_me %>
-    <%= f.label :remember_me %>
-  </div>
-<% end %>
 
-<div class="actions">
 
-</div>
-<div class='box'>
-  <div class='box-form'>
-    <div class='box-login-tab'></div>
-    <div class='box-login-title'>
-      <div class='i i-login'></div><h2>LOGIN</h2>
-    </div>
-    <div class='box-login'>
-      <div class='fieldset-body' id='login_form'>
-        <button onclick="openLoginInfo();" class='b b-form i i-more' title='Mais Informações'></button>
-        	<p class='field'>
-            <label for='user'>E-MAIL</label>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-          </p>
-      	  <p class='field'>
-            <label for='pass'>PASSWORD</label>
-            <%= f.password_field :password, autocomplete: "current-password" %>
-          </p>
-          <label class='checkbox'>
-            <input type='checkbox' value='TRUE' title='Keep me Signed in' /> Keep me Signed in
-          </label>
-        	<%= f.submit "Log in" %>
+</head>
+
+<body>
+  <!--
+Follow me on
+------------
+Codepen: http://codepen.io/mycnlz/
+Dribbble: https://dribbble.com/mycnlz
+Pinterest: https://pinterest.com/mycnlz/
+-->
+
+  <div class='box'>
+    <div class='box-form'>
+      <div class='box-login-tab'></div>
+      <div class='box-login-title'>
+        <div class='i i-login'></div><h2>LOGIN</h2>
+      </div>
+      <div class='box-login'>
+        <div class='fieldset-body' id='login_form'>
+          <button onclick="openLoginInfo();" class='b b-form i i-more' title='Mais Informações'></button>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <p class='field'>
+                <label for='user'>EMAIL</label>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                <span id='valida' class='i i-warning'></span>
+              </p>
+        	    <p class='field'>
+                <label for='pass'>HASŁO</label>
+                <%= f.password_field :password, autocomplete: "current-password" %>
+                <span id='valida' class='i i-close'></span>
+              </p>
+              <label class='checkbox'>
+              <input type='checkbox' value='TRUE' title='Keep me Signed in' /> Zapamiętaj mnie
+              </label>
+              <%= f.submit "Zaloguj" %>
+            <% end %>
+        </div>
       </div>
     </div>
+    <div class='box-info'>
+  		<p><button onclick="closeLoginInfo();" class='b b-info i i-left' title='Back to Sign In'></button><h3>Help?</h3>
+      </p>
+  		<div class='line-wh'></div>
+      <button onclick="" class='b-support' title='Forgot Password?'>Zapomniałeś hasła?</button>
+      <button onclick="" class='b-support' title='Contact Support'>Support</button>
+      <div class='line-wh'></div>
+      <%= link_to "Utwórz konto", new_user_registration_path %>
+
+    </div>
   </div>
-  <div class='box-info'>
-					    <p><button onclick="closeLoginInfo();" class='b b-info i i-left' title='Back to Sign In'></button><h3>Need Help?</h3>
-    </p>
-					    <div class='line-wh'></div>
-    					<button onclick="" class='b-support' title='Forgot Password?'> Forgot Password?</button>
-    <button onclick="" class='b-support' title='Contact Support'> Contact Support</button>
-    					<div class='line-wh'></div>
-    <button onclick="" class='b-cta' title='Sign up now!'> CREATE ACCOUNT</button>
-  				</div>
-</div>
-<% end %>
-
- <div class='icon-credits'>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a>, <a href="http://www.flaticon.com/authors/budi-tanrim" title="Budi Tanrim">Budi Tanrim</a> & <a href="http://www.flaticon.com/authors/nice-and-serious" title="Nice and Serious">Nice and Serious</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-<% end %>
-
-<%= render "devise/shared/links" %>
+</body>
+</html>

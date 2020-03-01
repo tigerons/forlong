@@ -8,7 +8,6 @@ General Style
 *::after {
   box-sizing: border-box;
 }
-
 body,
 html {
   height: 100%;
@@ -25,28 +24,10 @@ background: -webkit-linear-gradient(-45deg, rgba(30,29,31,1) 0%, rgba(223,64,90,
 background: -o-linear-gradient(-45deg, rgba(30,29,31,1) 0%, rgba(223,64,90,1) 100%);
 background: -ms-linear-gradient(-45deg, rgba(30,29,31,1) 0%, rgba(223,64,90,1) 100%);
 background: linear-gradient(135deg, rgba(30,29,31,1) 0%, rgba(223,64,90,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e1d1f', endColorstr='#df405a', GradientType=1 );
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=1, startColorstr=#1e1d1f, endColorstr=#df405a)";
+
 }
 
-/*--------------------
-Text
----------------------*/
-
-h2, h3 {
-  font-size: 16px;
-	letter-spacing: -1px;
-  line-height: 20px;
-}
-
-h2 {
-	color: #747474;
-	text-align: center;
-}
-
-h3 {
-	color: #032942;
-	text-align: right;
-}
 
 /*--------------------
 Icons
@@ -297,6 +278,29 @@ label.checkbox {
 	float: left;
   padding: 5px 20px;
 	line-height: 1.7;
+}
+
+input[type=text],
+input[type=email] {
+    width: 100%;
+    height: 32px;
+    padding: 0px 10px;
+    background-color: rgba(0,0,0,0.03);
+    border: none;
+    display: inline;
+    color: #303030;
+    font-size: 16px;
+    font-weight: 400;
+    float: left;
+
+    -webkit-box-shadow: inset 1px 1px 0px rgba(0,0,0,0.05), 1px 1px 0px rgba(255,255,255,1);
+    -moz-box-shadow: inset 1px 1px 0px rgba(0,0,0,0.05), 1px 1px 0px rgba(255,255,255,1);
+    box-shadow: inset 1px 1px 0px rgba(0,0,0,0.05), 1px 1px 0px rgba(255,255,255,1);
+}
+input[type=text]:focus,
+input[type=email]:focus {
+    background-color: #f8f8c6;
+    outline: none;
 }
 
 input[type=text],
