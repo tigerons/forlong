@@ -1,0 +1,15 @@
+<strong>Imię:</strong>
+<%= @user.name %>
+<br>
+<strong>Nazwisko</strong>
+<%= @user.surname%>
+<br>
+<strong>Email:</strong>
+<%= @user.email %>
+<strong>Data urodzenia:</strong>
+<%= @user.date_of_birth %>
+<br>
+<strong>Opis</strong>
+<%= @user.description %>
+<br>
+  <%= link_to "Edit user", edit_user_path(@user), remote: true %>

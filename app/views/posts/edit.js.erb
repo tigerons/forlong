@@ -1,1 +1,2 @@
-$('.update').replaceWith("<%= j render 'form', post: @post%>");
+document.getElementById('<%= dom_id(@post) %>').insertAdjacentHTML('afterend', "<%= j render 'inline_form', post: @post %>")
+document.getElementById('<%= dom_id(@post) %>').style.display = 'none'

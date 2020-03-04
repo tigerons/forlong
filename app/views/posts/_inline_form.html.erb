@@ -1,0 +1,13 @@
+<%= form_with model: post, id: dom_id(post, 'inline_form') do |form| %>
+
+  <div class="field">
+
+    <%= form.text_area :body %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+
+  </div>
+    <%= link_to "Cancel",posts_path, remote: true %>
+<% end %>

@@ -7,18 +7,15 @@
   <%= link_to 'Twoi znajomi', friendships_path %>
   <%= link_to 'Wysłane zaproszenia', friendships_requested_friends_path %>
   <%= link_to 'Zablokowani użytkownicy', users_blocked_users_path %>
-<div class="disable_input">
-  <%= form_for(@user, remote: true, class: 'disable_input') do |f| %>
-  <fieldset disabled>
-    <%= render 'form', :f => f %>
-  <% end %>
-<%= link_to "Change your password", edit_user_registration_path %>
+
+<%= content_tag :div, class: 'divTableRow', id: dom_id(@user) do %>
+  <p>
+  <%= render @user %>
+  </p>
+<% end %>
 </div>
 </div>
-</div>
-<h1 class="ui left floated header">
-  <%= current_user.email %>
-</h1>
+
 
 <% current_user.not_friends.sample(5).each do |user| %>
   <table id="add_to_friend">

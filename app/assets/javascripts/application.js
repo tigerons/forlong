@@ -13,7 +13,3 @@
 //= require jquery
 //= require rails-ujs
 //= require_tree .
-
-var test=function(){
-  alert("hello");
-}
