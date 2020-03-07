@@ -12,4 +12,6 @@
 <strong>Opis</strong>
 <%= @user.description %>
 <br>
+<% if @user == current_user %>
   <%= link_to "Edit user", edit_user_path(@user), remote: true %>
+<% end %>

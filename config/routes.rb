@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   resources :friend_requests
   #root to: 'pages#home'
   resources :users
-  devise_for :users, skip: [:registrations]
+  devise_for :users, skip: [:registrations], :path_prefix => 'd'
+  resources :users, :only =>[:show]
   devise_scope :user do
     authenticated :user do
       #get 'users/edit' => 'users/users_edit_path', :as => 'edit_user_path'
@@ -22,7 +23,8 @@ Rails.application.routes.draw do
   end
 
   get "/posts/edit" => "posts_path"
-
+  match '/users/:id',     to: 'users#show',       via: 'get'
+  ##get 'users:id' => 'users#show'
   match '/users',   to: 'users#index',   via: 'get'
   post "/friendships/accept" => "friendships/accept"
   post "/friendships/remove" => "friendships/remove"
