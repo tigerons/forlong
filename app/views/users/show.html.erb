@@ -1,2 +1,17 @@
+<h1>Mój profil</h1>
+<p>Find me in app/views/user/index.html.erb</p>
 
-<%= @user.email %>
+<div id="profile">
+<div class="container">
+
+  <%= link_to 'Twoi znajomi', friendships_path %>
+  <%= link_to 'Wysłane zaproszenia', friendships_requested_friends_path %>
+  <%= link_to 'Zablokowani użytkownicy', users_blocked_users_path %>
+
+  <%= content_tag :div, class: 'divTableRow', id: dom_id(@user) do %>
+    <p>
+    <%= render @user %>
+    </p>
+  <% end %>
+</div>
+</div>
