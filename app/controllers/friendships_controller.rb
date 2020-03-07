@@ -7,6 +7,7 @@ class FriendshipsController < ApplicationController
   end
 
   def show
+
   end
 
   def requested_friends
@@ -69,7 +70,7 @@ class FriendshipsController < ApplicationController
     @user = current_user
     friend = User.find_by(id: params[:id])
     @user.block_friendship(friend)
-    @user.blocked_users << friend
+    @user.blocked_users << friend.id
     @user.save!
     redirect_to users_path
   end
@@ -78,9 +79,9 @@ class FriendshipsController < ApplicationController
     @user = current_user
     friend = User.find_by(id: params[:id])
     @user.unblock_friendship(friend)
-    @user.blocked_users.delete(friend)
+    @user.blocked_users.delete(friend.id)
     @user.save!
-    redirect_to blocked_users
+    redirect_to users_blocked_users_path
   end
 
   def has_friend?

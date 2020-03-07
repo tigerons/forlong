@@ -2,7 +2,7 @@
   <table id="add_to_friend">
     <tr>
       <td>  <%= link_to user.email, user_path(user)%> </td>
-      <td>  <%= link_to "Dodaj do znajomych", {controller: 'friendships', action: 'create', method: :post, id: user.id, remote: true}, class: "create" %> </td>
+      <td> <%= link_to "Dodaj do znajomych", {controller: 'friendships', action: 'create', method: :post, id: user.id, remote: true}, class: "create" %> </td>
     <tr>
   </table>
 <% end %>

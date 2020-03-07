@@ -9,9 +9,7 @@
   <%= link_to 'Zablokowani użytkownicy', users_blocked_users_path %>
 
   <%= content_tag :div, class: 'divTableRow', id: dom_id(@user) do %>
-    <p>
-      
-    <%= render @user %>
+      <%= render @user %>
     </p>
   <% end %>
 </div>

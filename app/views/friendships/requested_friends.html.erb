@@ -4,7 +4,7 @@
   <% @pending.each do |user| %>
 <table id='reject'>
   <tr>
-    <td> <%= user.email%> </td>
+    <td> <%= link_to user.email, user_path(user.id)%> </td>
     <td> <%= link_to 'Anuluj', {controller: 'friendships', action: 'reject', method: :delete, id: user.id, remote: true}, class: "reject" %> </td>
   </tr>
 </table>
